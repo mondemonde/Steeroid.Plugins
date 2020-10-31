@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Script xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Commands>
+    <ScriptAction>
+      <ScriptCommand xsi:type="StartProcessCommand"
+      CommandID="242261b2-fe33-463b-b276-207aea91fb63"
+      CommandName="StartProcessCommand"
+      IsCommented="false"
+      SelectionName="Start Process"
+      DefaultPause="0" LineNumber="1" PauseBeforeExeucution="false"
+      v_Comment="template" CommandEnabled="true"
+      v_ProgramName="##.exe##"
+      v_ProgramArgs="-isAutoRun true -file ##.xaml##"
+      v_WaitForExit="Yes" />
+    </ScriptAction>
+  </Commands>
+  <Variables />
+</Script>
