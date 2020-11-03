@@ -11,6 +11,7 @@ using Tasktskie.Common.Contracts;
 using System.ComponentModel.Composition;
 using Serilog;
 using taskt.Core.Automation.Commands;
+using Tasktskie.Common.UI.Forms;
 
 namespace Tasktskie.MessageBoxCommand
 {
@@ -47,6 +48,10 @@ namespace Tasktskie.MessageBoxCommand
         {
             get => this.pictureBoxIcon.Image;
         }
+
+        public bool IsWebRecorder => false;
+
+
         private void button1_Click(object sender, EventArgs e)
         {
             Log.Logger = new LoggerConfiguration()
@@ -60,6 +65,11 @@ namespace Tasktskie.MessageBoxCommand
         {
             label1.Text = PluggerName;
 
+        }
+
+        UIWebRecorderForm IPlugger.GetWebRecorder()
+        {
+            throw new NotImplementedException();
         }
     }
 }

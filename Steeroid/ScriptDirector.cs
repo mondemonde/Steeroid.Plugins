@@ -151,7 +151,7 @@ namespace Steeroid
             return deserializedData;
         }
 
-        XmlSerializer GetSerializer()
+     public   XmlSerializer GetSerializer()
         {
             // use reflection to get all derived types
             //var knownTypes = Assembly.GetExecutingAssembly().GetTypes().Where(
@@ -166,10 +166,26 @@ namespace Steeroid
             return serializer;
         }
 
+        XmlSerializer GetSerializer(Type T)
+        {
+            // use reflection to get all derived types
+            //var knownTypes = Assembly.GetExecutingAssembly().GetTypes().Where(
+            //    t => typeof(ScriptCommand).IsAssignableFrom(t) || typeof(
+            //    MessageBoxCommand).IsAssignableFrom(t) || typeof(Door).IsAssignableFrom(t)).ToArray();
+
+            var knownTypes = Types.ToArray();
+
+            // prepare to serialize a car object
+            XmlSerializer serializer = new XmlSerializer(T, knownTypes);
+
+            return serializer;
+        }
+
+
         /// <summary>
         /// Creates a unique 'clone' of an item. Used to create unique clones of commands when changing/updating new parameters.
         /// </summary>
-        public  T Clone<T>(T source)
+        public T Clone<T>(T source)
         {
             if (!typeof(T).IsSerializable)
             {
@@ -182,17 +198,72 @@ namespace Steeroid
                 return default(T);
             }
 
-
             using (MemoryStream ms = new MemoryStream())
             {
-                BinaryFormatter formatter = new BinaryFormatter();
-                formatter.Context = new StreamingContext(StreamingContextStates.Clone);
+                var formatter = GetSerializer(typeof(T));// new BinaryFormatter();
+                                                         //var formatter =  new BinaryFormatter();
+
                 formatter.Serialize(ms, source);
                 ms.Position = 0;
-                return (T)formatter.Deserialize(ms);
+               return (T)formatter.Deserialize(ms);
             }
 
 
+           //const string FILENAME = @"MyObject.xml";            
+
+           // T retunValue;
+           // FileStream fs = new FileStream(FILENAME, FileMode.Open);
+           // try
+           // {
+           //     var formatter = GetSerializer(typeof(T));// new BinaryFormatter();
+           //                                     //var formatter =  new BinaryFormatter();
+
+           //     // formatter.Context = new StreamingContext(StreamingContextStates.Clone);
+           //     formatter.Serialize(fs, source);
+           //     fs.Position = 0;
+           //     retunValue = (T)formatter.Deserialize(fs);
+           // }
+           // catch (Exception err)
+           // {
+
+           //     Console.WriteLine(err.Message);
+           //     retunValue = default(T);
+           // }
+           // finally
+           // {
+           //     fs.Close();
+           // }
+           // return retunValue;
+
+            //const string FILENAME = @"MyObject.dat";
+
+            ////FileStream fileStream = new FileStream(filename, FileMode.Open);
+            ////using (MemoryStream ms = new MemoryStream())
+            //using (FileStream ms = new FileStream(FILENAME, FileMode.Open))
+
+            //{
+            //    var formatter = GetSerializer();// new BinaryFormatter();
+            //    //var formatter =  new BinaryFormatter();
+
+            //    // formatter.Context = new StreamingContext(StreamingContextStates.Clone);
+            //     formatter.Serialize(ms, source);
+            //     //ms.Position = 0;
+            //     return (T)formatter.Deserialize(ms);
+
+            //    //BinaryFormatter binaryFormatter = new BinaryFormatter();
+            //    //binaryFormatter.Binder = new SearchAssembliesBinder(Assembly.GetExecutingAssembly(), true);
+
+            //    // retunValue = (T)binaryFormatter.Deserialize(fileStream);
+            //    // return (T)binaryFormatter.Deserialize(ms);
+            //}
+
+            ////const string FILENAME = @"MyObject.dat";
+
+            ////// Serialize
+            ////BinaryFormatterHelper.Write(source, FILENAME);
+
+            ////// Deserialize
+            ////return BinaryFormatterHelper.Read<T>(FILENAME, Assembly.GetExecutingAssembly()); // Current Assembly where the dll is referenced
 
 
         }

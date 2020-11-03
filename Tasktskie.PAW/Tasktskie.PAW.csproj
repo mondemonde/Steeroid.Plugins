@@ -1,0 +1,371 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E5F97399-88AA-43CD-8234-652BE2BAEA63}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Tasktskie.PAW</RootNamespace>
+    <AssemblyName>Tasktskie.PAW</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>C:\BlastAsia\Steeroid\Plugins\Tasktskie.PAW\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevNoteExt">
+      <HintPath>..\Dependency\Tasktskie.Common\DevNoteExt.dll</HintPath>
+    </Reference>
+    <Reference Include="QR.API.Mapper.Std">
+      <HintPath>..\Dependency\Tasktskie.Common\QR.API.Mapper.Std.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.2.10.0\lib\net46\Serilog.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Sinks.Console, Version=3.1.1.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.Sinks.Console.3.1.1\lib\net45\Serilog.Sinks.Console.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.4.5.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Security.AccessControl, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.4.5.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Permissions.4.5.0\lib\net461\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.4.5.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Tasktskie.Common">
+      <HintPath>..\Dependency\Tasktskie.Common\Tasktskie.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConfigManager.cs" />
+    <Compile Include="MyFileEndPoint.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="PyAutoWinCommand.cs" />
+    <Compile Include="UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl1.Designer.cs">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl1.resx">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Custom.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="_EXE\PyAutoWinRec\Record_files\.idea\.gitignore" />
+    <None Include="_EXE\PyAutoWinRec\Record_files\.idea\Record_files.iml" />
+    <None Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\pyexpat.pyd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\select.pyd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\unicodedata.pyd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\win32api.pyd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\win32event.pyd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\win32file.pyd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\win32gui.pyd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\win32process.pyd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\win32ui.pyd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\_asyncio.pyd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\_bz2.pyd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\_ctypes.pyd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\_decimal.pyd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\_elementtree.pyd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\_hashlib.pyd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\_lzma.pyd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\_msi.pyd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\_multiprocessing.pyd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\_overlapped.pyd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\_queue.pyd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\_socket.pyd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\_sqlite3.pyd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\_ssl.pyd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\_tkinter.pyd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\_win32sysloader.pyd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ReadMe.txt" />
+    <Content Include="_EXE\PyAutoWinRec\pywinauto_recorder.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\ReadMe.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\.idea\inspectionProfiles\profiles_settings.xml" />
+    <Content Include="_EXE\PyAutoWinRec\Record_files\.idea\misc.xml" />
+    <Content Include="_EXE\PyAutoWinRec\Record_files\.idea\modules.xml" />
+    <Content Include="_EXE\PyAutoWinRec\Record_files\.idea\workspace.xml" />
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-core-console-l1-1-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-core-datetime-l1-1-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-core-debug-l1-1-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-core-errorhandling-l1-1-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-core-file-l1-1-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-core-file-l1-2-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-core-file-l2-1-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-core-handle-l1-1-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-core-heap-l1-1-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-core-interlocked-l1-1-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-core-libraryloader-l1-1-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-core-localization-l1-2-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-core-memory-l1-1-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-core-namedpipe-l1-1-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-core-processenvironment-l1-1-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-core-processthreads-l1-1-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-core-processthreads-l1-1-1.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-core-profile-l1-1-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-core-rtlsupport-l1-1-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-core-string-l1-1-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-core-synch-l1-1-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-core-synch-l1-2-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-core-sysinfo-l1-1-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-core-timezone-l1-1-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-core-util-l1-1-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-crt-conio-l1-1-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-crt-convert-l1-1-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-crt-environment-l1-1-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-crt-filesystem-l1-1-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-crt-heap-l1-1-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-crt-locale-l1-1-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-crt-math-l1-1-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-crt-multibyte-l1-1-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-crt-process-l1-1-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-crt-runtime-l1-1-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-crt-stdio-l1-1-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-crt-string-l1-1-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-crt-time-l1-1-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-crt-utility-l1-1-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\api-ms-win-eventing-provider-l1-1-0.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\libcrypto-1_1.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\libffi-7.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\libssl-1_1.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\mfc140u.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\python38.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\pythoncom38.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\pywinauto_recorder.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\pywinauto_recorder\copy_clipboard.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\pywintypes38.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\sqlite3.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\tcl86t.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\tk86t.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\ucrtbase.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\pywinauto_recorder.dist\vcruntime140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_EXE\PyAutoWinRec\Record_files\test1.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

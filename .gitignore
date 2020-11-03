@@ -338,3 +338,14 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+
+
+
+#Custom Files
+SocketServer.cs
+
+katalon-recorder_git/
+SetupDevnoteTaskt/
+ScintillaNET.Demo/
+Plugins/Tasktskie.StartProcessCommandKatalon/
+/Tasktskie.StartProcessCommandKatalon
